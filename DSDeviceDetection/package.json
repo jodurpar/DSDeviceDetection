@@ -1,0 +1,9 @@
+{
+  "name": "dsdevice-detection",
+  "version": "0.0.0",
+  "description": "DSDeviceDetection",
+  "main": "app.js",
+  "author": {
+    "name": ""
+  }
+}
