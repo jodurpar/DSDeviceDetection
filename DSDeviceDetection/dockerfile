@@ -1,0 +1,14 @@
+FROM node:alpine
+
+#RUN mkdir /app
+
+WORKDIR .
+
+COPY . .
+
+RUN ls -la .*
+
+RUN npm install
+
+EXPOSE 51235:59000
+CMD ["npm", "start"]

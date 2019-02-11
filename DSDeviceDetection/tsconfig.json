@@ -1,0 +1,17 @@
+{
+	"compilerOptions": {
+        "baseUrl": ".",
+        "paths": { "*": ["types/*"] },
+		"module": "commonjs",
+		"target": "es6",
+		"lib": [ "es2015" ],
+		"sourceMap": false,
+		"noImplicitAny": false,
+		"experimentalDecorators": true,
+		"outDir": "./src",
+		"noEmitOnError": true
+	},
+  "exclude": [
+    "node_modules"
+  ]
+}

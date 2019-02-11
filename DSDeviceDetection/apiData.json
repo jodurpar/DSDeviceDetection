@@ -1,0 +1,8 @@
+﻿{
+	"apiName": "dsDeviceDetectionApi",
+	"apiVersion": "0.1.0",
+	"apiSupportedVersions": [ "1.0.0" ],
+	"apiHost": "localhost",
+	"apiPort": "51235",
+	"apiDescription": "Demonstrating how to detect devices with user agent, restify and swagger"
+}

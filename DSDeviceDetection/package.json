@@ -1,9 +1,22 @@
 {
-  "name": "dsdevice-detection",
-  "version": "0.0.0",
-  "description": "DSDeviceDetection",
-  "main": "app.js",
-  "author": {
-    "name": ""
-  }
+	"name": "dsdevice-detection",
+	"version": "0.0.0",
+	"description": "DSDeviceDetection",
+	"main": "app.js",
+	"author": {
+		"name": ""
+	},
+	"dependencies": {
+		"@types/restify": "^7.2.7",
+		"restify": "^7.7.0",
+		"restify-cors-middleware": "^1.1.1",
+		"typescript": "^2.9.2",
+		"swagger-jsdoc": "^1.10.2"
+	},
+	"devDependencies": {
+		"@types/mime": "^1.3.1",
+		"@types/node": "^10.12.24",
+		"@types/serve-static": "^1.7.32",
+		"webpack": "^4.29.3"
+	}
 }
