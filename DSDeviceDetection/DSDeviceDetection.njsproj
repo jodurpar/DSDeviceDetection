@@ -8,7 +8,7 @@
     <TypeScriptSourceMap>true</TypeScriptSourceMap>
     <TypeScriptModuleKind>CommonJS</TypeScriptModuleKind>
     <ToolsVersionPromptShown>0.0</ToolsVersionPromptShown>
-    <TypeScriptToolsVersion>3.1</TypeScriptToolsVersion>
+    <TypeScriptToolsVersion>4.0</TypeScriptToolsVersion>
   </PropertyGroup>
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -33,25 +33,10 @@
     <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="api-docs\swagger-ui-bundle.js" />
-    <Compile Include="api-docs\swagger-ui-standalone-preset.js" />
-    <Compile Include="api-docs\swagger-ui.js" />
-    <Compile Include="api-docs\swaggerdoc.js" />
     <Compile Include="app.ts" />
-    <Content Include="api-docs\favicon-16x16.png" />
-    <Content Include="api-docs\favicon-32x32.png" />
-    <Content Include="api-docs\index.html" />
-    <Content Include="api-docs\oauth2-redirect.html" />
-    <Content Include="api-docs\swagger-ui-bundle.js.map" />
-    <Content Include="api-docs\swagger-ui-standalone-preset.js.map" />
-    <Content Include="api-docs\swagger-ui.css" />
-    <Content Include="api-docs\swagger-ui.css.map" />
-    <Content Include="api-docs\swagger-ui.js.map" />
-    <Content Include="apiData.json">
-      <SubType>Code</SubType>
-    </Content>
     <Content Include="package.json" />
     <Content Include="README.md" />
+    <Content Include="swagger\swaggerdoc.js" />
     <Content Include="tsconfig.json">
       <SubType>Code</SubType>
     </Content>
@@ -63,17 +48,19 @@
     <Folder Include="api\V1\" />
     <Folder Include="api\V1\controllers\" />
     <Folder Include="api\V1\controllers\devicedetect\" />
-    <Folder Include="api\V1\controllers\swagger\" />
     <Folder Include="api\V1\decorators\" />
     <Folder Include="api\V1\routes\" />
     <Folder Include="domain\" />
     <Folder Include="domain\enums\" />
     <Folder Include="domain\objects\" />
     <Folder Include="api\" />
-    <Folder Include="api-docs\" />
+    <Folder Include="swagger\" />
     <Folder Include="utility\" />
   </ItemGroup>
   <ItemGroup>
+    <TypeScriptCompile Include="api\common\apiData.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
     <TypeScriptCompile Include="api\common\common.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>
@@ -92,10 +79,7 @@
     <TypeScriptCompile Include="api\interfaces\idetect.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>
-    <TypeScriptCompile Include="api\V1\controllers\devicedetect\DeviceDetect.ts" />
-    <TypeScriptCompile Include="api\V1\controllers\swagger\swagger.ts">
-      <SubType>Code</SubType>
-    </TypeScriptCompile>
+    <TypeScriptCompile Include="api\V1\controllers\devicedetect\devicedetect.ts" />
     <TypeScriptCompile Include="api\V1\decorators\decorators.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>

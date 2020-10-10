@@ -17,16 +17,11 @@ export class Routes extends Utility.version {
 
 			// #region controllers
 
-			setGeneralRoute.Set(server, 'get', '/DeviceDetect', '/DeviceDetectAsync', '', '/devicedetect', 'DeviceDetect', 'DeviceDetect').then(result => { }).catch(e => { });
-			setGeneralRoute.Set(server, 'get', '/DeviceDetect', '/DeviceDetectAsync', '/:useragent', '/devicedetect', 'DeviceDetect', 'DeviceDetect').then(result => { }).catch(e => { });
-			// #endregion
-
-			// #region swagger
-
-			setGeneralRoute.Set(server, 'get', '/Swagger', undefined, '', '/swagger', 'swagger', 'swagger').then(result => { }).catch(e => { });;
-			setGeneralRoute.Set(server, 'get', '/ReadSwagger', undefined, '', '/swagger', 'swagger', 'readSwagger').then(result => { }).catch(e => { });;
+			setGeneralRoute.Set(server, 'get', '/DeviceDetect', '/DeviceDetectAsync', '', '/devicedetect', 'devicedetect', 'DeviceDetect').then(result => { }).catch(e => { });
+			setGeneralRoute.Set(server, 'get', '/DeviceDetect', '/DeviceDetectAsync', '/:useragent', '/devicedetect', 'devicedetect', 'DeviceDetect').then(result => { }).catch(e => { });
 
 			// #endregion
+
 
 			return;
 		}

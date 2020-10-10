@@ -11,7 +11,7 @@ import { HTTPStatusCodes } from '../../../../domain/enums/httpstatuscodes';
 
 export namespace api100 {
 
-	export class DeviceDetect extends Utility.version implements IDeviceDetect {
+	export class devicedetect extends Utility.version implements IDeviceDetect {
 
 		@getMethodName
 		public DeviceDetect(req: restify.Request, res: restify.Response) {

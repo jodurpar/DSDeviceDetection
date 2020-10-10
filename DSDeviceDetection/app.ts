@@ -1,6 +1,8 @@
 
 'use strict';
 import * as restify from "restify";
+import * as restifySwaggerJsdoc from 'restify-swagger-jsdoc';
+import { apiData } from "./api/common/apiData";
 import { Utility } from "./utility/utility";
 
 
@@ -9,8 +11,7 @@ import { Routes } from './api/V1/routes/routes';
 import { CommonConstants } from './domain/enums/commonconstants';
 
 
-export let apiData = Utility.fileUtility.readFileAsObject('./apiData.json');
-
+export let _apiData = apiData;
 
 // Create restify objects
 const server = restify.createServer({
@@ -25,7 +26,7 @@ const cors = corssMidleware({
 	exposeHeaders: []
 });
 
-//parsing settings
+// parsing settings
 server.use(restify.plugins.acceptParser(server.acceptable));
 server.use(restify.plugins.queryParser({ mapParams: true }));
 server.use(restify.plugins.bodyParser({ mapParams: true }));
@@ -62,13 +63,14 @@ process.on('uncaughtException', function (err) {
 (new Routes()).setRoutes(server);
 
 
-server.get('/*', restify.plugins.serveStatic({
-	directory: './api-docs',
-}));
+restifySwaggerJsdoc.createSwaggerPage({
+	title: _apiData.apiName, // Page title
+	description: _apiData.apiDescription,
+	version: _apiData.apiVersion, // Server version
+	server: server, // Restify server instance created with restify.createServer()
+	path: '/swagger', // Public url where the swagger page will be available
+	apis: ['swagger/swaggerdoc.js']
 
-server.get('/', function (req, res, next) {
-	res.redirect(server.url.replace('[::]', 'localhost') + '/Swagger', next);
-	next();
 });
 
 
