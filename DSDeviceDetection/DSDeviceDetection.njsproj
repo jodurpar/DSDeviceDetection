@@ -35,7 +35,6 @@
   <ItemGroup>
     <Compile Include="app.ts" />
     <Content Include="package.json" />
-    <Content Include="README.md" />
     <Content Include="swagger\swaggerdoc.js" />
     <Content Include="tsconfig.json">
       <SubType>Code</SubType>
