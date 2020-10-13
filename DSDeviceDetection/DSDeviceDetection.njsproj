@@ -34,6 +34,8 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="app.ts" />
+    <Content Include="docker\DsDeviceDetection.js" />
+    <Content Include="docker\swagger\swaggerdoc.js" />
     <Content Include="package.json" />
     <Content Include="swagger\swaggerdoc.js" />
     <Content Include="tsconfig.json">
@@ -49,6 +51,8 @@
     <Folder Include="api\V1\controllers\devicedetect\" />
     <Folder Include="api\V1\decorators\" />
     <Folder Include="api\V1\routes\" />
+    <Folder Include="docker\" />
+    <Folder Include="docker\swagger\" />
     <Folder Include="domain\" />
     <Folder Include="domain\enums\" />
     <Folder Include="domain\objects\" />
