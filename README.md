@@ -20,7 +20,7 @@
 
 ### In a Docker container.
 
-- There are a docker and a docker-compose files in the dist folder. Run docker build or docker-compose build to make a docker image. 
+- There are a docker and a docker-compose files in the dist folder. Run docker build to make a docker image. 
 
 #### Get docker image
  - There are a running docker image in hub.docker.com
@@ -46,7 +46,7 @@
 
 ## Test Examples
 
-* [TestExamples](https://github.com/jodurpar/DSDeviceDetectApi/blob/master/TestMe.md)
+* [TestExamples](https://github.com/jodurpar/DSDeviceDetection/blob/master/TestMe.md)
 
 ### Author
 
@@ -65,6 +65,6 @@ Parts of this code are bases in the excelent work of
 
 ### License
 
-Copyright © 2019 [José Durán Pareja](https://github.com/jodurpar).
+Copyright © 2019/2020 [José Durán Pareja](https://github.com/jodurpar).
 Released under the [MIT License](./mitLicense.md).
 
