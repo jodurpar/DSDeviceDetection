@@ -35,7 +35,7 @@ export class Common extends Utility.version {
 				try {
 					resolve(await (_context)[func].call(_context, req, res));
 				} catch (e) {
-					resolve();
+					reject(e);
 				}
 			}
 			catch (e) {
