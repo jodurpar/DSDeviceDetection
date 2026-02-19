@@ -1,51 +1,51 @@
 # DsDeviceDetection Microservice v2 (Remastered)
 
-Servicio de detección de dispositivos de alto rendimiento, autónomo y extensible, construido con **Node.js**, **TypeScript** y **Express**. 
+A high-performance, autonomous, and extensible device detection service built with **Node.js**, **TypeScript**, and **Express**.
 
-Esta versión 2.0 ha sido rediseñada desde cero siguiendo principios **SOLID**, **Clean Code** y una arquitectura **Data-Driven** (orientada a datos), lo que permite su escalabilidad sin modificar el núcleo del softwarecore.
+This version 2.0 has been redesigned from scratch following **SOLID**, **Clean Code** principles and a **Data-Driven** architecture, allowing scalability without modifying the core engine.
 
-## Características
+## Features
 
-- **Arquitectura**: Implementación mediante *Strategy Pattern* y *Chain of Responsibility*.
-- **Data-Driven**: Detección basada en firmas JSON cargadas en memoria (Ultra-fast).
-- **Client Hints support**: Soporta los estándares más recientes de Google (Sec-CH-UA-*).
-- **Zero-DB**: No requiere bases de datos externas; todo funciona en el contenedor.
-- **Web UI**: Dashboard minimalista integrado para pruebas rápidas.
-- **OpenAPI 3.0**: Documentación interactiva completa con Swagger UI.
-- **Docker Ready**: Imagen multi-stage optimizada basada en Alpine.
+- **Architecture**: Implementation using *Strategy Pattern* and *Chain of Responsibility*.
+- **Data-Driven**: Detection based on JSON signatures loaded in memory (Ultra-fast).
+- **Client Hints support**: Supports the latest Google standards (Sec-CH-UA-*).
+- **Zero-DB**: No external databases required; everything runs within the container.
+- **Web UI**: Integrated minimalist dashboard for quick testing.
+- **OpenAPI 3.0**: Complete interactive documentation with Swagger UI.
+- **Docker Ready**: Optimized multi-stage image based on Alpine.
 
-## Instalación y Despliegue
+## Installation and Deployment
 
-### Con Docker (Recomendado)
+### With Docker (Recommended)
 ```bash
 docker-compose up --build
 ```
-La API estará disponible en `http://localhost:15230`.
+The API will be available at `http://localhost:15230`.
 
-### Desarrollo Local
-1. Instalar dependencias: `npm install`
-2. Iniciar modo dev: `npm run dev`
-3. Construir para producción: `npm run build`
-4. Iniciar producción: `npm start`
+### Local Development
+1. Install dependencies: `npm install`
+2. Start dev mode: `npm run dev`
+3. Build for production: `npm run build`
+4. Start production: `npm start`
 
-## Uso
+## Usage
 
-### Endpoints Principales
-- **GET/POST `/api/v1/detect`**: Detecta el dispositivo.
-    - Puedes enviar el `useragent` como query param o en los headers estándar.
-    - Soporta headers de *Client Hints* para mayor precisión en versiones modernas de Chrome/Edge.
-- **Página Web `/`**: Interfaz visual para análisis manual.
-- **Documentación `/docs`**: Swagger UI con el contrato OpenAPI.
+### Main Endpoints
+- **GET/POST `/api/v1/detect`**: Detects the device.
+    - You can send the `useragent` as a query param or in standard headers.
+    - Supports *Client Hints* headers for better precision in modern versions of Chrome/Edge.
+- **Web Page `/`**: Visual interface for manual analysis.
+- **Documentation `/docs`**: Swagger UI with the OpenAPI contract.
 
-## Contribuciones
+## Contributions
 
-Este proyecto crece gracias a su comunidad. Si encuentras un dispositivo, sistema operativo o navegador que no se detecta correctamente, puedes añadirlo fácilmente editando el archivo de firmas.
+This project grows thanks to its community. If you find a device, operating system, or browser that is not correctly detected, you can easily add it by editing the signatures file.
 
-Consulta la **[Guía de Contribución](./CONTRIBUTING.md)** para aprender cómo añadir nuevas firmas en segundos.
+Check the **[Contribution Guide](./CONTRIBUTING.md)** to learn how to add new signatures in seconds.
 
-## Licencia y Avisos Legales
+## License and Legal Notices
 
 Copyright © 2026 José Durán Pareja.
-Lanzado bajo la [Licencia MIT](./mitLicense.md).
+Released under the [MIT License](./mitLicense.md).
 
-**AVISO IMPORTANTE**: Este software se entrega "tal cual". La precisión de la detección depende de las firmas de datos. Para más detalles sobre atribución y descargos de responsabilidad, consulta el archivo **[NOTICE](./NOTICE.md)**.
+**IMPORTANT NOTICE**: This software is provided "as is". Detection accuracy depends on the data signatures. For more details on attribution and disclaimers, see the **[NOTICE](./NOTICE.md)** file.

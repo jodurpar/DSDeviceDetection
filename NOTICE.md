@@ -4,15 +4,15 @@
 
 Copyright (c) 2026 José Durán Pareja.
 
-## Atribución
-Este microservicio ha sido diseñado y desarrollado por José Durán Pareja (jodurpar) en 2019, y remasterizado íntegramente en 2026 para cumplir con estándares modernos de arquitectura de software.
+## Attribution
+This microservice was designed and developed by José Durán Pareja (jodurpar) in 2019, and was fully remastered in 2026 to comply with modern software architecture standards.
 
-## Descargo de Responsabilidad de Datos (Data Disclaimer)
-Este software utiliza un motor de detección basado en patrones (Regex/JSON) y heurísticas para la identificación de agentes de usuario (User-Agents) y Client Hints.
+## Data Disclaimer
+This software uses a detection engine based on patterns (Regex/JSON) and heuristics for the identification of User-Agents and Client Hints.
 
-1.  **Precisión**: La precisión de la detección de dispositivos, sistemas operativos y navegadores depende exclusivamente de la vigencia y exactitud de las firmas contenidas en `/data/signatures.json`. 
-2.  **Mantenimiento Comunitario**: Dado que los fabricantes de hardware y desarrolladores de software lanzan nuevos agentes de usuario constantemente, este software se apoya en el aporte de la comunidad para mantenerse actualizado.
-3.  **Garantía**: El software se provee "tal cual" (AS IS), sin garantías de ningún tipo, expresas o implícitas, sobre su exactitud técnica o idoneidad para un propósito específico. José Durán Pareja no se hace responsable de las consecuencias derivadas de detecciones incorrectas o de la falta de soporte para dispositivos específicos en aplicaciones críticas o contractuales.
+1.  **Accuracy**: The accuracy of device, operating system, and browser detection depends exclusively on the currency and accuracy of the signatures contained in `/data/signatures.json`.
+2.  **Community Maintenance**: Since hardware manufacturers and software developers constantly release new user agents, this software relies on community contributions to stay up to date.
+3.  **Warranty**: The software is provided "as is", without warranties of any kind, express or implied, regarding its technical accuracy or fitness for a particular purpose. José Durán Pareja is not responsible for the consequences derived from incorrect detections or the lack of support for specific devices in critical or contractual applications.
 
 ---
-Para contribuir a la mejora de la precisión de este motor, consulta nuestra [Guía de Contribución](./CONTRIBUTING.md).
+To contribute to improving the accuracy of this engine, please refer to our [Contribution Guide](./CONTRIBUTING.md).

@@ -1,35 +1,35 @@
 ﻿# Changelog
 
-Todos los cambios notables en este proyecto serán documentados en este archivo.
+All notable changes to this project will be documented in this file.
 
 ## [2.0.0] - 2026-02-19
 
-### Remasterización Total (Microservicio Senior)
+### Total Remaster (Senior Microservice)
 
-Esta versión supone una reescritura completa del proyecto original para convertirlo en un microservicio moderno, eficiente y desacoplado.
+This version represents a complete rewrite of the original project to turn it into a modern, efficient, and decoupled microservice.
 
-#### Añadido
-- **Arquitectura Senior**: Implementación de *Strategy Pattern* y *Chain of Responsibility* para la detección.
-- **Data-Driven Core**: Motor basado en firmas JSON (`/data/signatures.json`) cargadas en memoria.
-- **Client Hints support**: Detección avanzada para navegadores modernos (Sec-CH-UA-*).
-- **Web UI Premium**: Interfaz minimalista en `/` con diseño oscuro y responsive.
-- **OpenAPI 3.0**: Documentación interactiva completa bajo Swagger UI en `/docs`.
-- **Docker Multi-stage**: Imagen optimizada basada en Alpine.
-- **Testing**: Suite de pruebas con Vitest para validación de lógica de detección.
-- **CONTRIBUTING.md**: Guía detallada para extender el sistema de firmas sin tocar código.
+#### Added
+- **Senior Architecture**: Implementation of *Strategy Pattern* and *Chain of Responsibility* for detection.
+- **Data-Driven Core**: Engine based on JSON signatures (`/data/signatures.json`) loaded in memory.
+- **Client Hints support**: Advanced detection for modern browsers (Sec-CH-UA-*).
+- **Premium Web UI**: Minimalist interface at `/` with dark and responsive design.
+- **OpenAPI 3.0**: Complete interactive documentation under Swagger UI at `/docs`.
+- **Docker Multi-stage**: Optimized image based on Alpine.
+- **Testing**: Test suite with Vitest for detection logic validation.
+- **CONTRIBUTING.md**: Detailed guide to extending the signature system without touching code.
 
-#### Cambiado
-- **Runtime**: Migración a Node.js 22 LTS y TypeScript 5.
-- **Módulos**: Uso nativo de ESM (ECMAScript Modules).
-- **Puerto**: Puerto predeterminado cambiado a `15230`.
-- **Framework**: Migración de Restify a Express.js para mayor flexibilidad.
+#### Changed
+- **Runtime**: Migration to Node.js 22 LTS and TypeScript 5.
+- **Modules**: Native use of ESM (ECMAScript Modules).
+- **Port**: Default port changed to `15230`.
+- **Framework**: Migration from Restify to Express.js for greater flexibility.
 
-#### Eliminado
-- Dependencia de sistemas antiguos de enrutamiento dinámico.
-- Lógica de detección "hardcoded" en el código fuente.
+#### Removed
+- Dependency on old dynamic routing systems.
+- "Hardcoded" detection logic in the source code.
 
 ## [0.1.0] - 2019-02-09
-### Versión Inicial
-- Proyecto basado en Restify y Swagger JSDoc.
-- Primera implementación de detección de dispositivos.
-- Soporte inicial para Docker.
+### Initial Version
+- Project based on Restify and Swagger JSDoc.
+- First implementation of device detection.
+- Initial Docker support.

@@ -1,21 +1,21 @@
-# Guía de Contribución - DsDeviceDetection
+# Contribution Guide - DsDeviceDetection
 
-¡Gracias por querer mejorar este microservicio! Al ser una arquitectura **Data-Driven**, puedes añadir soporte para nuevos navegadores, sistemas operativos o dispositivos sin necesidad de modificar el código fuente de la aplicación. Solo necesitas editar el archivo de firmas.
+Thank you for wanting to improve this microservice! Being a **Data-Driven** architecture, you can add support for new browsers, operating systems, or devices without modifying the application's source code. You only need to edit the signatures file.
 
-## Estructura del archivo de firmas
+## Signatures File Structure
 
-Todas las firmas se encuentran en el archivo:
+All signatures are located in the file:
 `data/signatures.json`
 
-El archivo está dividido en cuatro categorías principales:
+The file is divided into four main categories:
 
-### 1. Navegadores (`browsers`)
-Para añadir un nuevo navegador, añade un objeto a la lista con:
-- `name`: Nombre descriptivo.
-- `regex`: Expresión regular que capture la versión en el primer grupo (usando paréntesis `()`).
-- `priority`: Orden de evaluación (menor número = mayor prioridad).
+### 1. Browsers (`browsers`)
+To add a new browser, add an object to the list with:
+- `name`: Descriptive name.
+- `regex`: Regular expression that captures the version in the first group (using parentheses `()`).
+- `priority`: Evaluation order (lower number = higher priority).
     
-**Ejemplo:**
+**Example:**
 ```json
 {
   "name": "Brave",
@@ -24,13 +24,13 @@ Para añadir un nuevo navegador, añade un objeto a la lista con:
 }
 ```
 
-### 2. Sistemas Operativos (`os`)
-Similar a los navegadores, debe capturar la versión mediante regex.
-- `name`: Nombre del S.O.
-- `regex`: Expresión regular para detectar el S.O. y su versión.
-- `priority`: Orden de evaluación.
+### 2. Operating Systems (`os`)
+Similar to browsers, it should capture the version via regex.
+- `name`: OS name.
+- `regex`: Regular expression to detect the OS and its version.
+- `priority`: Evaluation order.
 
-**Ejemplo:**
+**Example:**
 ```json
 {
   "name": "Ubuntu",
@@ -39,13 +39,13 @@ Similar a los navegadores, debe capturar la versión mediante regex.
 }
 ```
 
-### 3. Dispositivos (`devices`)
-Define la categoría del hardware.
-- `type`: Categoría (`desktop`, `mobile`, `tablet`, `tv`, `console`).
-- `regex`: Patrón para identificar el tipo.
-- `priority`: Orden de evaluación.
+### 3. Devices (`devices`)
+Defines the hardware category.
+- `type`: Category (`desktop`, `mobile`, `tablet`, `tv`, `console`).
+- `regex`: Pattern to identify the type.
+- `priority`: Evaluation order.
 
-**Ejemplo:**
+**Example:**
 ```json
 {
   "type": "console",
@@ -55,12 +55,12 @@ Define la categoría del hardware.
 ```
 
 ### 4. Bots (`bots`)
-Identifica rastreadores o agentes automatizados.
-- `name`: Nombre del bot.
-- `regex`: Patrón de detección.
-- `category`: Categoría descriptiva (`Search`, `AI`, `Monitor`).
+Identifies crawlers or automated agents.
+- `name`: Bot name.
+- `regex`: Detection pattern.
+- `category`: Descriptive category (`Search`, `AI`, `Monitor`).
 
-**Ejemplo:**
+**Example:**
 ```json
 {
   "name": "Slackbot",
@@ -69,35 +69,35 @@ Identifica rastreadores o agentes automatizados.
 }
 ```
 
-## Flujo de Trabajo para Colaboradores
+## Contributor Workflow
 
-1.  **Localiza el User-Agent**: Obtén el string exacto que quieres detectar.
-2.  **Prueba tu Regex**: Asegúrate de que tu expresión regular es válida y captura correctamente la versión si es necesario.
-3.  **Actualiza `data/signatures.json`**: Añade tu entrada respetando el formato JSON.
-4.  **Verifica**:
-    - Si usas Docker, los cambios se aplicarán al reiniciar el contenedor (ya que se cargan en memoria al arrancar).
-    - Si corres en local, ejecuta `npm start` y comprueba el resultado en la UI web (`/`) o en Swagger (`/docs`).
-6.  **Firma tus Commits (DCO)**: Para asegurar la autoría legal de tu contribución, requerimos que todos los commits incluyan un "Signed-off-by".
+1.  **Locate the User-Agent**: Get the exact string you want to detect.
+2.  **Test your Regex**: Ensure your regular expression is valid and correctly captures the version if necessary.
+3.  **Update `data/signatures.json`**: Add your entry following the JSON format.
+4.  **Verify**:
+    - If using Docker, changes will apply upon restarting the container (as they are loaded into memory at startup).
+    - If running locally, run `npm start` and check the result in the web UI (`/`) or in Swagger (`/docs`).
+6.  **Sign your Commits (DCO)**: To ensure the legal authorship of your contribution, we require all commits to include a "Signed-off-by".
 
 ## Developer Certificate of Origin (DCO)
 
-Para proteger este proyecto y a sus usuarios de futuras disputas legales sobre la autoría del código o de las firmas de detección, utilizamos el **Developer Certificate of Origin (DCO)**. Al incluir la línea `Signed-off-by` en el mensaje de tu commit, certificas que tienes el derecho legal de enviar tu contribución.
+To protect this project and its users from future legal disputes over the authorship of the code or detection signatures, we use the **Developer Certificate of Origin (DCO)**. By including the `Signed-off-by` line in your commit message, you certify that you have the legal right to submit your contribution.
 
-El texto del DCO es el siguiente:
+The DCO text is as follows:
 
-> Al hacer una contribución a este proyecto, certifico que:
-> (a) La contribución fue creada en su totalidad por mí y tengo el derecho de presentarla bajo la licencia de código abierto indicada en el archivo; o
-> (b) La contribución se basa en trabajos anteriores que, según mi leal saber y entender, están cubiertos por licencias de código abierto apropiadas y tengo el derecho de presentar ese material bajo la misma licencia de código abierto; o
-> (c) La contribución me fue proporcionada directamente por alguna otra persona que certificó (a), (b) o (c) y no la he modificado.
+> By making a contribution to this project, I certify that:
+> (a) The contribution was created in whole or in part by me and I have the right to submit it under the open source license indicated in the file; or
+> (b) The contribution is based upon previous work that, to the best of my knowledge, is covered under an appropriate open source license and I have the right under that license to submit that work with modifications, whether created in whole or in part by me, under the same open source license (unless I am permitted to submit under a different license), as indicated in the file; or
+> (c) The contribution was provided directly to me by some other person who certified (a), (b) or (c) and I have not modified it.
 
-### Cómo firmar tus commits
-Simplemente añade la opción `-s` a tu comando git:
+### How to sign your commits
+Just add the `-s` option to your git command:
 ```bash
-git commit -s -m "Añadida firma de detección para Brave Browser"
+git commit -s -m "Added detection signature for Brave Browser"
 ```
-Esto añadirá automáticamente una línea al final de tu mensaje de commit similar a esta:
-`Signed-off-by: Tu Nombre <tu.email@ejemplo.com>`
+This will automatically add a line at the end of your commit message similar to this:
+`Signed-off-by: Your Name <your.email@example.com>`
 
 ---
 
-*Nota: Mantenemos el código bajo los principios **KISS (Keep It Simple, Stupid)**. Si tu detección requiere lógica compleja que no puede resolverse con Regex en el JSON, por favor abre un Issue para discutir una nueva estrategia en el `DetectionCoordinator`.*
+*Note: We keep code under **KISS (Keep It Simple, Stupid)** principles. If your detection requires complex logic that cannot be resolved with Regex in the JSON, please open an Issue to discuss a new strategy in the `DetectionCoordinator`.*
