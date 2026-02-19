@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DsDeviceDetection - Microservicio</title>
+    <title>DsDeviceDetection - Microservice</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
@@ -110,36 +110,36 @@
         <h1>DsDeviceDetection v2</h1>
         <div class="input-group">
             <label for="ua">User Agent String</label>
-            <textarea id="ua" rows="4" placeholder="Ejemplo: Mozilla/5.0 (Windows NT 10.0; Win64; x64) ..."></textarea>
+            <textarea id="ua" rows="4" placeholder="Example: Mozilla/5.0 (Windows NT 10.0; Win64; x64) ..."></textarea>
         </div>
-        <button onclick="detect()">Analizar Signature</button>
+        <button onclick="detect()">Analyze Signature</button>
 
         <div class="input-group" style="margin-top: 30px;">
-            <label>Resultados (JSON)</label>
-            <pre id="result">Pulsa el botón para ver los datos...</pre>
+            <label>Results (JSON)</label>
+            <pre id="result">Click the button to see the data...</pre>
         </div>
 
         <div class="footer">
-            Autónomo en Docker • Sin Base de Datos • In-Memory High Performance
+            Standalone Docker • Zero Database • In-Memory High Performance
         </div>
     </div>
 
     <script>
-        // El campo ahora usa un placeholder para el ejemplo.
+        // Use placeholder for example.
 
         async function detect() {
             let ua = document.getElementById('ua').value;
-            // Si el campo está vacío, enviamos el User-Agent actual del navegador como fallback
+            // If field is empty, send current browser User-Agent as fallback
             if (!ua) ua = navigator.userAgent;
             const resultEl = document.getElementById('result');
-            resultEl.innerText = "Procesando...";
+            resultEl.innerText = "Processing...";
 
             try {
                 const response = await fetch(`/api/v1/detect?useragent=${encodeURIComponent(ua)}`);
                 const data = await response.json();
                 resultEl.innerText = JSON.stringify(data, null, 2);
             } catch (err) {
-                resultEl.innerText = "Error al conectar con la API.";
+                resultEl.innerText = "Error connecting to the API.";
             }
         }
     </script>
