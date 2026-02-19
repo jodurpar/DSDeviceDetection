@@ -7,8 +7,8 @@ export class DetectionController {
         const queryUA = req.query.useragent as string;
         const userAgent = queryUA || req.headers['user-agent'] || '';
 
-        // Si se pasa useragent por query, ignoramos los Client Hints de los headers del navegador
-        // ya que probablemente el usuario quiere probar un UA específico.
+        // If useragent is passed via query, we ignore the browser's Client Hints
+        // as the user likely wants to test a specific UA.
         const hasQueryUA = !!queryUA;
 
         const clientHints: DetectionContext['clientHints'] = !hasQueryUA ? {

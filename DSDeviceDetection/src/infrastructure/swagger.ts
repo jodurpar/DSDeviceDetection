@@ -54,20 +54,20 @@ export const swaggerOptions = {
         info: {
             title: 'DsDeviceDetection API',
             version: '2.0.0',
-            description: 'Servicio de detección de dispositivos de alto rendimiento (In-Memory).',
+            description: 'High-performance device detection service (In-Memory).',
         },
         servers: [
             {
                 url: '/',
-                description: 'Servidor Actual (Relativo)'
+                description: 'Current Server (Relative)'
             },
             {
                 url: 'http://localhost:15230',
-                description: 'Desarrollo Local'
+                description: 'Local Development'
             },
             {
                 url: 'https://api.dsdevicedetection.com',
-                description: 'Producción (Demo)'
+                description: 'Production (Demo)'
             }
         ],
     },

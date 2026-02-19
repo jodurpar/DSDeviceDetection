@@ -36,7 +36,7 @@ export class LegacyRegexDetector implements IDetectorStrategy {
             if (match) {
                 device.type = d.type;
 
-                // Heurística básica para extraer marca/modelo de móviles si no hay Client Hints
+                // Basic heuristics to extract brand/model from mobiles if no Client Hints are available
                 if (d.type === 'mobile' || d.type === 'tablet') {
                     const mobileMatch = ua.match(/\(([^;]+);/);
                     if (mobileMatch && mobileMatch[1]) {

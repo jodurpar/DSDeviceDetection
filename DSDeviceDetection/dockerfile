@@ -17,7 +17,7 @@ WORKDIR /app
 COPY package*.json ./
 RUN npm install --production
 
-# Copiamos lo necesario de la fase build
+# Copy necessary files from the build stage
 COPY --from=builder /app/dist ./dist
 COPY --from=builder /app/data ./data
 COPY --from=builder /app/public ./public

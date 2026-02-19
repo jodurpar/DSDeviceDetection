@@ -7,25 +7,25 @@ const router = Router();
  * @openapi
  * /api/v1/detect:
  *   get:
- *     summary: Detecta dispositivo, OS y navegador usando GET (Query params o Headers).
+ *     summary: Detects device, OS, and browser using GET (Query params or Headers).
  *     parameters:
  *       - in: query
  *         name: useragent
  *         schema:
  *           type: string
- *         description: El string del User-Agent (opcional si se envía en headers)
+ *         description: The User-Agent string (optional if sent in headers)
  *     responses:
  *       200:
- *         description: Resultado de la detección.
+ *         description: Detection result.
  *         content:
  *           application/json:
  *             schema:
  *               $ref: '#/components/schemas/DetectionResult'
  *   post:
- *     summary: Detecta dispositivo, OS y navegador usando POST.
+ *     summary: Detects device, OS, and browser using POST.
  *     responses:
  *       200:
- *         description: Resultado de la detección exitoso.
+ *         description: Successful detection result.
  *         content:
  *           application/json:
  *             schema:
