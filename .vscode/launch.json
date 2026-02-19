@@ -1,21 +1,60 @@
 {
-    // Use IntelliSense para saber los atributos posibles.
-    // Mantenga el puntero para ver las descripciones de los existentes atributos 
-    // Para más información, visite: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
         {
             "type": "node",
             "request": "launch",
-            "name": "Launch Program",
-            "program": "${workspaceFolder}/app.js"
+            "name": "Debug API (tsx)",
+            "runtimeExecutable": "npx",
+            "runtimeArgs": [
+                "tsx",
+                "watch",
+                "${workspaceFolder}/DSDeviceDetection/src/index.ts"
+            ],
+            "cwd": "${workspaceFolder}/DSDeviceDetection",
+            "console": "integratedTerminal",
+            "skipFiles": [
+                "<node_internals>/**"
+            ]
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Debug API (nodemon)",
+            "runtimeExecutable": "npm",
+            "runtimeArgs": [
+                "run",
+                "dev"
+            ],
+            "cwd": "${workspaceFolder}/DSDeviceDetection",
+            "console": "integratedTerminal",
+            "skipFiles": [
+                "<node_internals>/**"
+            ]
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Debug Current Test (Vitest)",
+            "autoAttachChildProcesses": true,
+            "program": "${workspaceFolder}/DSDeviceDetection/node_modules/vitest/vitest.mjs",
+            "args": [
+                "run",
+                "${relativeFile}"
+            ],
+            "cwd": "${workspaceFolder}/DSDeviceDetection",
+            "smartStep": true,
+            "console": "integratedTerminal",
+            "skipFiles": [
+                "<node_internals>/**"
+            ]
         },
         {
             "type": "chrome",
             "request": "launch",
-            "name": "Launch Chrome against localhost",
-            "url": "http://localhost:51235",
-            "webRoot": "${workspaceFolder}"
+            "name": "Launch Web UI",
+            "url": "http://localhost:15230",
+            "webRoot": "${workspaceFolder}/DSDeviceDetection/public"
         }
     ]
 }
