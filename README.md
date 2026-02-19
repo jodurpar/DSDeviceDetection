@@ -1,70 +1,51 @@
-# DSDeviceDetectApi
+# DsDeviceDetection Microservice v2 (Remastered)
 
-## What ?
+Servicio de detección de dispositivos de alto rendimiento, autónomo y extensible, construido con **Node.js**, **TypeScript** y **Express**. 
 
--    This api is a fast way to detect the device from one user agent.
--    Deploy in a docker container or as node app and you can use it.
+Esta versión 2.0 ha sido rediseñada desde cero siguiendo principios **SOLID**, **Clean Code** y una arquitectura **Data-Driven** (orientada a datos), lo que permite su escalabilidad sin modificar el núcleo del softwarecore.
 
-## Install
+## Características
 
-### In command prompt
+- **Arquitectura**: Implementación mediante *Strategy Pattern* y *Chain of Responsibility*.
+- **Data-Driven**: Detección basada en firmas JSON cargadas en memoria (Ultra-fast).
+- **Client Hints support**: Soporta los estándares más recientes de Google (Sec-CH-UA-*).
+- **Zero-DB**: No requiere bases de datos externas; todo funciona en el contenedor.
+- **Web UI**: Dashboard minimalista integrado para pruebas rápidas.
+- **OpenAPI 3.0**: Documentación interactiva completa con Swagger UI.
+- **Docker Ready**: Imagen multi-stage optimizada basada en Alpine.
 
-- Clone this project
-- Run npm install
-- Compile Typescript
-- Run node app.js
+## Instalación y Despliegue
 
-### In a Webpack
+### Con Docker (Recomendado)
+```bash
+docker-compose up --build
+```
+La API estará disponible en `http://localhost:15230`.
 
-- run webpack in the src folder command prompt. This make a /dist folder with DsDeviceDetect.js file.
+### Desarrollo Local
+1. Instalar dependencias: `npm install`
+2. Iniciar modo dev: `npm run dev`
+3. Construir para producción: `npm run build`
+4. Iniciar producción: `npm start`
 
-### In a Docker container.
+## Uso
 
-- There are a docker and a docker-compose files in the dist folder. Run docker build to make a docker image. 
+### Endpoints Principales
+- **GET/POST `/api/v1/detect`**: Detecta el dispositivo.
+    - Puedes enviar el `useragent` como query param o en los headers estándar.
+    - Soporta headers de *Client Hints* para mayor precisión en versiones modernas de Chrome/Edge.
+- **Página Web `/`**: Interfaz visual para análisis manual.
+- **Documentación `/docs`**: Swagger UI con el contrato OpenAPI.
 
-#### Get docker image
- - There are a running docker image in hub.docker.com
-   - docker pull jodurpar/dsdevicedetect
- - Run "docker run -d --name dsdevicedetect -p 51235:51235 dsdevidedetect" 
- - or use kitematic to run mongo image and dsdevicedetect image created before.
+## Contribuciones
 
+Este proyecto crece gracias a su comunidad. Si encuentras un dispositivo, sistema operativo o navegador que no se detecta correctamente, puedes añadirlo fácilmente editando el archivo de firmas.
 
-## Uninstall
+Consulta la **[Guía de Contribución](./CONTRIBUTING.md)** para aprender cómo añadir nuevas firmas en segundos.
 
-- Remove solution.
-- Remode docker container and images.
+## Licencia y Avisos Legales
 
-## Usage
+Copyright © 2026 José Durán Pareja.
+Lanzado bajo la [Licencia MIT](./mitLicense.md).
 
-- Run "node app.js" in to cloned directory once typescript are compiled.
-- The api was configurate to run in localhost:51235, but can be changed editing  the file ./apiData.json
-
-- If you want to build another break version (example another 2.0.0 version) simple copy and paste V1 to V2 folder and change all the references from V1 to V2 inside the files in the V2 folder.
-  > Also you need to add all api200 references where api100 references are used. This version only take care of the first number, because only mayor released are used.  
-  > 
-
-
-## Test Examples
-
-* [TestExamples](https://github.com/jodurpar/DSDeviceDetection/blob/master/TestMe.md)
-
-### Author
-
-**José Durán Pareja**
-
-* [github/jodurpar](https://github.com/jodurpar)
-
-### Credits
-
-The api is inspired by and based on the work from ng-device-detector. 
-Also used a typescript wrapper of the amazing work in ReTree for regex based 
-needs.
-
-Parts of this code are bases in the excelent work of 
-* [github/AhsanAyaz](https://github.com/AhsanAyaz)
-
-### License
-
-Copyright © 2019/2020 [José Durán Pareja](https://github.com/jodurpar).
-Released under the [MIT License](./mitLicense.md).
-
+**AVISO IMPORTANTE**: Este software se entrega "tal cual". La precisión de la detección depende de las firmas de datos. Para más detalles sobre atribución y descargos de responsabilidad, consulta el archivo **[NOTICE](./NOTICE.md)**.

@@ -1,117 +1,88 @@
-# DSDeviceDetectApi
+# TestMe - DsDeviceDetection v2
 
+Este documento contiene instrucciones y ejemplos para probar el microservicio de detección de dispositivos.
 
-## Test Examples
+## Pruebas en Entorno Local
 
-## Run in local
- - Enter in command prompt.
- - Navigate to api src folder and then run "node app"
-
-## Run in docker
- - Enter in command prompt.
- - Navigate to api home folder / src and then run webpack
- - Navigate  to api home folder / dist and then run "docker build -t dsdevicedetect . --no-cache" to build api image
- - Run "docker run -d --name dsdevicedetect -p 51235:51235 dsdevidedetect:dsdevicedetect" 
- - or use kitematic to run mongo image and dsdevicedetect image created before.
-
-## Get docker image
- - There are a running docker image in hub.docker.com
-   - docker pull jodurpar/dsdevicedetect
- - Run "docker run -d --name dsdevicedetect -p 51235:51235 dsdevidedetect:dsdevicedetect" 
- - or use kitematic to run mongo image and dsdevicedetect image created before.
-
-### Testing in a browser
-    
-- Go to your browser and navigate to http://localhost:51235/Swagger . If all are ok, you will see this screen:
- 
-![Swagger Screen](https://github.com/jodurpar/DSDeviveDetectApi/blob/master/BrowserSwagger.PNG)
-
-### Testing in Postman
-
-- __Run Postman__ 
-- __For DeviceDetect, select GET verb and enter__
-   ```javascript
-   localhost:51235
-   ```
-    Add useragent param: 
-    ```javascript
-        useragent: Mozilla/5.0 (iPad; CPU OS 9_3_5 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Version/9.0 Mobile/13G36 Safari/601.1
+1.  **Iniciar el servidor**:
+    ```bash
+    npm run dev
     ```
-   - In the response body can recieve this JSON object
-   ```javascript
-        {
-        "deviceInfo":
-            {
-            "userAgent": "Mozilla/5.0 (Linux; Android 9; SM-G960F) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.96 Mobile Safari/537.36\",
-            "os":"Android",
-            "browser":"Chrome",
-            "device":"Android",
-            "os_version":"unknown",
-            "browser_version":"72.0.3626.96"},
-            "isMobile":true,
-            "isDesktop":false,
-            "isTablet":false
-            }
-   ```
-   - If there are any error, you may recieve the HTTP error. The "1.0.0" literal is de last versión of this api.
 
+## Ejecución con Docker
 
+### Desde Docker Hub (Imagen de Producción)
+Si prefieres no compilar el código y usar la imagen oficial lista para usar:
 
+1.  **Descargar la imagen**:
+    ```bash
+    docker pull jodurpar/DsDeviceDetection:latest
+    ```
+2.  **Ejecutar el contenedor**:
+    ```bash
+    docker run -d --name ds-device-detection -p 15230:15230 jodurpar/DsDeviceDetection:latest
+    ```
 
-## Use the api from your code 
+### Compilación Local (Docker Compose)
+Si has realizado cambios y quieres probarlos en un contenedor:
+```bash
+docker-compose up --build
+```
+2.  **Abrir la Web UI**:
+    Navega a [http://localhost:15230](http://localhost:15230). Verás una interfaz moderna donde puedes pegar un User-Agent y pulsar "Analizar Signature".
 
-    You need an http client to access to the api.
+3.  **Consultar Swagger**:
+    Navega a [http://localhost:15230/docs](http://localhost:15230/docs) para probar los endpoints interactivamente desde la documentación.
 
-### Angular Typescript code
-#### Get DeviceDetect, you can see the swagger example to reply
-##### You need add in params the user agent!
- 
-   ```javascript
-        import { HttpClient, HttpHeaders, HttpParams, HttpErrorResponse } from '@angular/common/http';
+## Pruebas con cURL / Postman
 
-        export class HttpclientService {
+### Detección mediante GET (Query Param)
+```bash
+curl "http://localhost:15230/api/v1/detect?useragent=Mozilla/5.0%20(iPhone;%20CPU%20iPhone%20OS%2017_4%20like%20Mac%20OS%20X)%20AppleWebKit/605.1.15%20(KHTML,%20like%20Gecko)%20Version/17.4%20Mobile/15E148%20Safari/604.1"
+```
 
-        constructor(public http: HttpClient) {
-            }
+### Detección mediante POST (JSON)
+```bash
+curl -X POST http://localhost:15230/api/v1/detect \
+     -H "Content-Type: application/json" \
+     -d '{"userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36"}'
+```
 
-        public deviceDetect<T>( myParams : HttpParams = undefined) : Promise<T> {
+### Detección con Client Hints (Simulación)
+```bash
+curl http://localhost:15230/api/v1/detect \
+     -H "Sec-CH-UA-Platform: Android" \
+     -H "Sec-CH-UA-Platform-Version: 14" \
+     -H "Sec-CH-UA-Mobile: ?1" \
+     -H "Sec-CH-UA-Model: Pixel 8"
+```
 
-        let url = 'localhost:51235';
+## Pruebas de Calidad (Automáticas)
 
-        let promise = new Promise<T>((resolve, reject) => {
+Ejecuta la suite de tests unitarios e integración para verificar que el núcleo del motor funciona correctamente:
 
-        try {
+```bash
+npm run test
+```
 
-            let myheaders = new HttpHeaders();
-            myheaders.set("client-authorization", "Myapp");
-            myheaders = myheaders.append("client-authentication", "app");
-            myheaders = myheaders.append("accept-version", "1.0.0");
+## Ejemplo de Respuesta Esperada (JSON)
 
-            this.http.get(url, { headers: myheaders , params : myParams})
-                .toPromise()
-                .then(response => {
-                resolve(response as T);
-            } )
-        } catch (e) {
-        reject([]);
-        }
-        });
-        return promise;
-       }
-    }
-   ```
-
-### C# Code (same to all .NET)
-
-
-### Author
-
-**José Durán Pareja**
-
-* [github/jodurpar](https://github.com/jodurpar)
-
-### License
-
-Copyright © 2019 [José Durán Pareja](https://github.com/jodurpar).
-Released under the [MIT License](./mitLicense.md).
-
+```json
+{
+  "isBot": false,
+  "device": {
+    "type": "mobile",
+    "brand": "unknown",
+    "model": "iPhone"
+  },
+  "os": {
+    "name": "iOS",
+    "version": "17.4"
+  },
+  "browser": {
+    "name": "Safari",
+    "version": "17.4",
+    "engine": "unknown"
+  }
+}
+```

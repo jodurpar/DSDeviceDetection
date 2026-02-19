@@ -1,0 +1,100 @@
+{
+    "browsers": [
+        {
+            "name": "Edge",
+            "regex": "Edg/([\\d\\.]+)",
+            "engine": "Blink",
+            "priority": 1
+        },
+        {
+            "name": "Chrome",
+            "regex": "Chrome/([\\d\\.]+)",
+            "engine": "Blink",
+            "priority": 2
+        },
+        {
+            "name": "Firefox",
+            "regex": "Firefox/([\\d\\.]+)",
+            "engine": "Gecko",
+            "priority": 3
+        },
+        {
+            "name": "Safari",
+            "regex": "Version/([\\d\\.]+).*Safari",
+            "engine": "WebKit",
+            "priority": 4
+        },
+        {
+            "name": "Opera",
+            "regex": "OPR/([\\d\\.]+)",
+            "engine": "Blink",
+            "priority": 5
+        }
+    ],
+    "os": [
+        {
+            "name": "Windows",
+            "regex": "Windows NT ([\\d\\.]+)",
+            "priority": 1
+        },
+        {
+            "name": "Android",
+            "regex": "Android ([\\d\\.]+)",
+            "priority": 2
+        },
+        {
+            "name": "iOS",
+            "regex": "OS ([\\d_]+) like Mac OS X",
+            "priority": 3
+        },
+        {
+            "name": "macOS",
+            "regex": "Mac OS X ([\\d_]+)",
+            "priority": 4
+        },
+        {
+            "name": "Linux",
+            "regex": "Linux",
+            "priority": 5
+        }
+    ],
+    "devices": [
+        {
+            "type": "mobile",
+            "regex": "Mobile|Android|iPhone|iPod",
+            "priority": 1
+        },
+        {
+            "type": "tablet",
+            "regex": "Tablet|iPad|PlayBook",
+            "priority": 2
+        },
+        {
+            "type": "tv",
+            "regex": "SmartTV|AppleTV|HbbTV",
+            "priority": 3
+        },
+        {
+            "type": "console",
+            "regex": "PlayStation|Xbox|Nintendo",
+            "priority": 4
+        }
+    ],
+    "bots": [
+        {
+            "name": "GPTBot",
+            "regex": "GPTBot",
+            "category": "AI"
+        },
+        {
+            "name": "GoogleBot",
+            "regex": "Googlebot",
+            "category": "Search"
+        },
+        {
+            "name": "BingBot",
+            "regex": "bingbot",
+            "category": "Search"
+        }
+    ]
+}

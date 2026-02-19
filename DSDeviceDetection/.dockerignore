@@ -1,1 +1,8 @@
-﻿
+﻿node_modules
+dist
+coverage
+.git
+.github
+*.md
+dockerfile
+docker-compose.yml

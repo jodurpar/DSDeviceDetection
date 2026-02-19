@@ -1,0 +1,9 @@
+services:
+  api:
+    build: .
+    image: jodurpar/dsdevicedetection:latest
+    ports:
+      - "15230:15230"
+    environment:
+      - NODE_ENV=production
+    restart: always
